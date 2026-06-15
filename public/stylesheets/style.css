@@ -14,3 +14,22 @@ a {
 .name {
   font-weight: 700;
 }
+#newMessage {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+  > label {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    width: 50%;
+  }
+  input {
+    width: 50%;
+  }
+  #newMessageText {
+    height: 10vh;
+  }  
+}

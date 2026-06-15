@@ -5,16 +5,6 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <% messages.forEach((message) => { %>
-      <span class="message">
-        <span>
-          <p class="dateTime"><%= message.added.toLocaleString() %></p>
-          <p class="name"><%= message.user %></p>
-        </span>
-        <p class="messageText"><%= message.text %></p>
-      </span>
-    <% }); %>
     <form id="newMessage" method="POST" action="/new">
       <label for="newMessageAuthor">Author: <input name="newMessageAuthor" id="newMessageAuthor" type="text"/></label>
       <label for="newMessageText">Message: <input name="newMessageText" id="newMessageText" type="text"/></label>

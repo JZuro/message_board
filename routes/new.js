@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-// router.get('/new', function(req, res, next) {
-//   res.render('new', { title: 'new' });
-// });
+router.get('/', function(req, res, next) {
+  res.render('form', { title: 'new' });
+});
 
 module.exports = router;
 
