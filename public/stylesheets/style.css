@@ -6,3 +6,11 @@ body {
 a {
   color: #00B7FF;
 }
+
+.message {
+  margin: 10px;
+}
+
+.name {
+  font-weight: 700;
+}
