@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <form id="newMessage" method="POST" action="/new">
-      <label for="newMessageAuthor">Author: <input name="newMessageAuthor" id="newMessageAuthor" type="text"/></label>
+      <label for="newMessageName">Name: <input name="newMessageName" id="newMessageName" type="text"/></label>
       <label for="newMessageText">Message: <input name="newMessageText" id="newMessageText" type="text"/></label>
       <button type="submit">SEND</button>
     </form>

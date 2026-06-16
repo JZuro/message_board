@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <h1><%= title %></h1>
-    <% messages.forEach((message) => { %>
-      <span class="message">
-        <span>
-          <p class="dateTime"><%= message.added.toLocaleString() %></p>
-          <p class="name"><%= message.user %></p>
+    <div id="messagesContainer">
+      <% messages.forEach((message) => { %>
+        <span class="message">
+          <span class="messageHeader">
+            <p class="name"><%= message.user %></p>
+            <p class="dateTime"><%= message.added.toLocaleString() %></p>
+          </span>
+          <p class="messageText"><%= message.text %></p>
         </span>
-        <p class="messageText"><%= message.text %></p>
-      </span>
-    <% }); %>
+      <% }); %>
+    </div>
     <form id="newMessage" method="POST" action="/new">
-      <label for="newMessageAuthor">Author: <input name="newMessageAuthor" id="newMessageAuthor" type="text"/></label>
-      <label for="newMessageText">Message: <input name="newMessageText" id="newMessageText" type="text"/></label>
+      <label for="newMessageName">Name: <input name="newMessageName" id="newMessageName" type="text"/></label>
+      <label for="newMessageText">Message: <textarea name="newMessageText" id="newMessageText" type="text"></textarea></label>
       <button type="submit">SEND</button>
     </form>
   </body>
