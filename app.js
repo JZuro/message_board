@@ -1,46 +1,29 @@
-const express = require('express');
-const path = require('path');
+const { loadEnvFile } = require("node:process");
+// Must run before the routers below are required: they pull in db/pool.js,
+// which reads process.env to build the connection pool at require-time.
+loadEnvFile();
 
-const indexRouter = require('./routes/index');
-const newRouter = require('./routes/new');
-const usersRouter = require('./routes/users');
+const express = require("express");
+const path = require("path");
 
 const app = express();
+const indexRouter = require("./routes/index");
+const newRouter = require("./routes/new");
+const usersRouter = require("./routes/users");
+
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
 
-app.use('/', indexRouter);
-app.use('/new', newRouter);
-app.use('/users', usersRouter);
-
-
+app.use("/", indexRouter);
+app.use("/new", newRouter);
+app.use("/users", usersRouter);
 
 
-// // error handling
-// app.use((req, res, next) => {
-//   throw new Error("OH NO!");
-// 	// or next(new Error("OH NO!"));
-// });
-
-// app.use((err, req, res, next) => {
-// 	console.error(err);
-// 	// You will see an OH NO! in the page, with a status code of 500 that can be seen in the network tab of the dev tools
-// 	res.status(500).send(err.message);
-// });
-
-const PORT = 3001;
-const server = app.listen(PORT, () => {
-  console.log(`Testing Express Views - listening on port ${PORT}!`);
-});
-
-server.on("error", (error) => {
-  throw error;
-});
 
 module.exports = app;
