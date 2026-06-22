@@ -4,6 +4,10 @@ async function getAllMessages() {
 	const { rows } = await pool.query("SELECT * FROM messages");
 	return rows;
 }
+async function getAllUsers() {
+	const { rows } = await pool.query("SELECT DISTINCT username FROM messages");
+	return rows;
+}
 
 async function insertMessage(username, message) {
 	await pool.query(
@@ -14,5 +18,6 @@ async function insertMessage(username, message) {
 
 module.exports = {
 	getAllMessages,
+	getAllUsers,
 	insertMessage,
 };

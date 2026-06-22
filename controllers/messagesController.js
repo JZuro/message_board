@@ -4,6 +4,10 @@ async function getAllMessages(req, res) {
 	const messages = await db.getAllMessages();
 	res.render("indexView", { messages });
 }
+async function getAllUsers(req, res) {
+	const users = await db.getAllUsers();
+	res.render("usersView", { users });
+}
 
 async function createMessagePost(req, res) {
 	const { newMessageName, newMessageText } = req.body;
@@ -13,6 +17,7 @@ async function createMessagePost(req, res) {
 
 module.exports = {
 	getAllMessages,
+	getAllUsers,
 	createMessagePost,
 };
 
