@@ -5,10 +5,6 @@ async function getAllMessages(req, res) {
 	res.render("indexView", { messages });
 }
 
-async function createMessageGet(req, res) {
-	res.render("formView")
-}
-
 async function createMessagePost(req, res) {
 	const { newMessageName, newMessageText } = req.body;
 	await db.insertMessage(newMessageName, newMessageText);
@@ -17,7 +13,6 @@ async function createMessagePost(req, res) {
 
 module.exports = {
 	getAllMessages,
-	createMessageGet,
 	createMessagePost,
 };
 
