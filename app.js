@@ -1,7 +1,12 @@
 const { loadEnvFile } = require("node:process");
 // Must run before the routers below are required: they pull in db/pool.js,
 // which reads process.env to build the connection pool at require-time.
-loadEnvFile();
+// No .env file exists in production (Railway injects vars directly), so ignore it if missing.
+try {
+	loadEnvFile();
+} catch (err) {
+	if (err.code !== "ENOENT") throw err;
+}
 
 const express = require("express");
 const path = require("path");
