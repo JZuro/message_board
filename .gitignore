@@ -4,4 +4,3 @@ npm-debug.log*
 .env.*
 *.log
 .DS_Store
-db/pool.js
