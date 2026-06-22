@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const messagesController = require("../controllers/messagesController.js");
 
-router.get('/', function(req, res, next) {
-  res.render('form', { title: 'new' });
-});
+router.get("/", messagesController.createMessageGet);
+router.post("/", messagesController.createMessagePost);
+
 
 module.exports = router;
 

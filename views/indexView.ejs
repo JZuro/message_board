@@ -2,19 +2,19 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= title %></title>
+    <title>Messageboard</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
+    <h1>Messageboard</h1>
     <div id="messagesContainer">
       <% messages.forEach((message) => { %>
         <span class="message">
           <span class="messageHeader">
-            <p class="name"><%= message.user %></p>
-            <p class="dateTime"><%= message.added.toLocaleString() %></p>
+            <p class="name"><%= message.username %></p>
+            <p class="dateTime"><%= message.date.toLocaleString() %></p>
           </span>
-          <p class="messageText"><%= message.text %></p>
+          <p class="messageText"><%= message.message %></p>
         </span>
       <% }); %>
     </div>

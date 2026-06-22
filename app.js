@@ -1,11 +1,11 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
 
-var indexRouter = require('./routes/index');
-var newRouter = require('./routes/new');
-var usersRouter = require('./routes/users');
+const indexRouter = require('./routes/index');
+const newRouter = require('./routes/new');
+const usersRouter = require('./routes/users');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
